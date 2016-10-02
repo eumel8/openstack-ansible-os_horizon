@@ -5,7 +5,7 @@
   <project-version>{{ translate_version }}</project-version>
   <project-type>gettext</project-type>
   <src-dir>.</src-dir>
-  <trans-dir>{{ horizon_bin | dirname }}/lib/python2.7/site-packages/horizon/</trans-dir>
+  <trans-dir>{{ horizon_bin | dirname }}/lib/python2.7/site-packages/</trans-dir>
   <excludes>.*/**</excludes>
   <rules>
     <rule pattern="**/*.pot">{path}/{locale_with_underscore}/LC_MESSAGES/{filename}.po</rule>
