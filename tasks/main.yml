@@ -72,5 +72,17 @@
     - horizon-install
     - horizon-config
 
+- include: translation_repo.yml
+  tags:
+    - horizon-install
+
+- include: translation_install.yml
+  tags:
+    - horizon-install
+
+- include: translation_config.yml
+  tags:
+    - horizon-install
+
 - name: Flush handlers
   meta: flush_handlers
