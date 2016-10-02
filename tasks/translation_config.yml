@@ -1,0 +1,32 @@
+---
+
+# vars:
+# zanat_url: https://translate.openstack.org:443
+# zanata_username: user
+# zanaza_key: api_key
+# zanata_version: 3.8.1
+# translate_version: stable-newton
+
+- name: Setup Zanata config(s)
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "root"
+    group: "root"
+    mode: "600"
+  with_items:
+    - { src: "zanata.pp.j2", dest: "/etc/puppet/manifests/zanata.pp", mode: "0644" }
+    - { src: "zanata.xml.j2", dest: "/root/zanata.xml", mode: "0644" }
+    - { src: "zanata-sync.sh.j2", dest: "/root/zanata-sync.sh", mode: "0755" }
+    - { src: "update-lang-list.py.j2", dest: "/root/update-lang-list.py", mode: "0755" }
+    - { src: "zanata.ini.j2", dest: "/root/.config/zanata.ini", mode: "0600" }
+
+- name: Sync Translation File Cron
+  cron:
+    name: "Sync Translation files"
+    minute: "{{ 58 | random(start=2) }}"
+    hour: 18
+    job: "zanata-sync.sh.j2"
+    user: "root"
+    state: present
+

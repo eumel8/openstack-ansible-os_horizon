@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<config xmlns="http://zanata.org/namespace/config/">
+  <url>{{ zanata_url }}</url>
+  <project>horizon</project>
+  <project-version>{{ translate_version }}</project-version>
+  <project-type>gettext</project-type>
+  <src-dir>.</src-dir>
+  <trans-dir>{{ horizon_bin | dirname }}/lib/python2.7/site-packages/horizon/</trans-dir>
+  <excludes>.*/**</excludes>
+  <rules>
+    <rule pattern="**/*.pot">{path}/{locale_with_underscore}/LC_MESSAGES/{filename}.po</rule>
+  </rules>
+</config>

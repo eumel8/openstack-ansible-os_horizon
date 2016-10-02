@@ -27,3 +27,4 @@ horizon_distro_packages:
   - openssl
   - python-mysqldb # required by the Ansible mysql_db module
   - gettext
+  - puppet
