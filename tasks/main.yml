@@ -76,11 +76,11 @@
   tags:
     - horizon-install
 
-- include: translation_install.yml
+- include: translation_config.yml
   tags:
     - horizon-install
 
-- include: translation_config.yml
+- include: translation_install.yml
   tags:
     - horizon-install
 
