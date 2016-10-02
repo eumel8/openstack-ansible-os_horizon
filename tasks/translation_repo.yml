@@ -3,28 +3,20 @@
 - name: Clone git repository zanata
   git:
     repo: "https://git.openstack.org/openstack-infra/puppet-zanata"
-    dest: "/etc/puppet/modules"
+    dest: "/etc/puppet/modules/zanata"
     clone: yes
     update: yes
 
 - name: Clone git repository puppetlabs-java_ks
   git:
     repo: "https://github.com/puppetlabs/puppetlabs-java_ks.git"
-    dest: "/etc/puppet/modules"
+    dest: "/etc/puppet/modules/java_ks"
     clone: yes
     update: yes
 
 - name: Clone git repository puppetlabs-vcsrepo
   git:
     repo: "https://github.com/puppetlabs/puppetlabs-vcsrepo"
-    dest: "/etc/puppet/modules"
-    clone: yes
-    update: yes
-
-- name: Clone git repository translation_checksite
-  git:
-    repo: "https://github.com/eumel8/translation_checksite.git"
-    version: "feat/ansible"
-    dest: "/etc/puppet/modules"
+    dest: "/etc/puppet/modules/vcsrepo"
     clone: yes
     update: yes

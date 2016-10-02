@@ -1,9 +1,9 @@
 ---
 
 # vars:
-# zanat_url: https://translate.openstack.org:443
+# zanata_url: https://translate.openstack.org:443
 # zanata_username: user
-# zanaza_key: api_key
+# zanata_key: api_key
 # zanata_version: 3.8.1
 # translate_version: stable-newton
 
