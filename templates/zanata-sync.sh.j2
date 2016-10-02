@@ -16,7 +16,7 @@ LOCAL_SETTINGS={{ horizon_bin | dirname }}/lib/python2.7/site-packages/openstack
 TOP_DIR=$(cd $(dirname "$0") && pwd)
 
 sed -i -e '/^LANGUAGES = /,$d' $LOCAL_SETTINGS
-python $TOP_DIR/update-lang-list.py >> $LOCAL_SETTINGS
+{{ horizon_bin | dirname }}/bin/python $TOP_DIR/update-lang-list.py >> $LOCAL_SETTINGS
 
 # reload apache
 sudo `which apache2ctl` graceful
