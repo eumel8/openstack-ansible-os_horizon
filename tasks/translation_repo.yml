@@ -2,7 +2,7 @@
 
 - name: Clone git repository zanata
   git:
-    repo: "https://git.openstack.org/openstack-infra/puppet-zanata"
+    repo: "https://github.com/eumel8/puppet-zanata.git"
     dest: "/etc/puppet/modules/zanata"
     clone: yes
     update: yes
