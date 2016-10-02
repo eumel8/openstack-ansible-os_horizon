@@ -26,7 +26,7 @@
     name: "Sync Translation files"
     minute: "{{ 58 | random(start=2) }}"
     hour: 18
-    job: "zanata-sync.sh.j2"
+    job: "/root/zanata-sync.sh"
     user: "root"
     state: present
 
