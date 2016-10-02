@@ -13,7 +13,7 @@
     dest: "{{ item.dest }}"
     owner: "root"
     group: "root"
-    mode: "600"
+    mode: "755"
   with_items:
     - { src: "zanata.pp.j2", dest: "/etc/puppet/manifests/zanata.pp", mode: "0644" }
     - { src: "zanata.xml.j2", dest: "/root/zanata.xml", mode: "0644" }
