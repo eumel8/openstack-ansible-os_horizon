@@ -6,6 +6,8 @@
 # zanata_key: api_key
 # zanata_version: 3.8.1
 # translate_version: stable-newton
+# zanata_sync_hour: 18
+# zanata_sync_minute: 2
 
 - name: Setup Zanata config(s)
   template:
@@ -24,8 +26,8 @@
 - name: Sync Translation File Cron
   cron:
     name: "Sync Translation files"
-    minute: "{{ 58 | random(start=2) }}"
-    hour: 18
+    minute: "{{ zanata_sync_minute }}"
+    hour: "{{ zanata_sync_hour }}"
     job: "/root/zanata-sync.sh"
     user: "root"
     state: present
