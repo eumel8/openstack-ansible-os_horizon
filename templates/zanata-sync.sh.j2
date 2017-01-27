@@ -1,0 +1,22 @@
+#!/bin/sh
+# 
+# Script for sync language files from zanata, compile them and reload apache
+# requires zanata.xml for zanata-cli
+#
+# fetch new po files for spezific lang
+/opt/zanata/zanata-cli-{{ zanata_version }}/bin/zanata-cli  -B -q pull
+
+# compile mo files
+for file in `find {{ horizon_bin | dirname }}/lib/python2.7/site-packages/horizon -name "*.po"` ; do msgfmt -o `echo $file | sed 's/\.po$/.mo/'` $file ; done
+
+# update lang list
+# see https://github.com/amotoki/horizon-i18n-tools
+LOCAL_SETTINGS={{ horizon_bin | dirname }}/lib/python2.7/site-packages/openstack_dashboard/local/local_settings.py
+
+TOP_DIR=$(cd $(dirname "$0") && pwd)
+
+sed -i -e '/^LANGUAGES = /,$d' $LOCAL_SETTINGS
+{{ horizon_bin | dirname }}/bin/python $TOP_DIR/update-lang-list.py >> $LOCAL_SETTINGS
+
+# reload apache
+sudo `which apache2ctl` graceful

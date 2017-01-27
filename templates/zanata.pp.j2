@@ -1,0 +1,18 @@
+user { "root":
+  ensure     => present,
+  managehome => true,
+  shell      => '/bin/bash',
+  password   => '!',
+}
+
+class {'zanata::client':
+  version        => "{{ zanata_version }}",
+  user           => 'root',
+  group          => 'root',
+  server         => 'openstack',
+  server_url     => "{{ zanata_url }}",
+  server_user    => "{{ zanata_username }}",
+  server_api_key => "{{ zanata_key }}",
+  homedir        => '/root/',
+}
+

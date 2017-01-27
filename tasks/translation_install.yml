@@ -1,0 +1,5 @@
+---
+
+- name: Run puppet to install Zanata Client
+  command: "puppet apply /etc/puppet/manifests/zanata.pp"
+
