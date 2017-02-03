@@ -7,7 +7,7 @@ Adjustments for translation checksite
 - name: os_horizon
   scm: git
   src: https://github.com/eumel8/openstack-ansible-os_horizon
-  version: dc709f154803170c0a68438dc55ca28e3ff5303a
+  version: 27cfd7d95a0f8e4bcbaa84bfa0493a355ec8453d
 
 2) set public openstack service to http with
 'echo "openstack_service_publicuri_proto: http" >> /etc/openstack_deploy/user_variables.yml'
