@@ -28,7 +28,7 @@
     name: "Sync Translation files"
     minute: "{{ zanata_sync_minute }}"
     hour: "{{ zanata_sync_hour }}"
-    job: "/root/zanata-sync.sh"
+    job: "cd /root; ./zanata-sync.sh"
     user: "root"
     state: present
 
